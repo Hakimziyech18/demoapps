@@ -1,7 +1,17 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import {View, Text, StyleSheet, Button, TextInput, Image} from 'react-native';
+import styled from 'styled-components/native';
 
+const ChatBox = styled.View`
+  position:absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color:yellow;
+  border-radius:50px;
+  padding:5px;
+  box-shadow: 5px -5px 8px black;
+`;
 export default function App() {
   const [revenue,setRevenue] = useState(0);
   const [expenses,setExpenses] = useState(0);
@@ -51,6 +61,10 @@ export default function App() {
         TaxCalculator;
         setStatus(true);
         }}/>
+
+        <ChatBox>
+          <Image style={styles.chat} source={require('./assets/images/whatsapp.png')}/>
+        </ChatBox>
       <StatusBar style='auto'/>
     </View>
   )
@@ -92,5 +106,9 @@ const styles = StyleSheet.create({
     width:80,
     height:80,
     borderRadius:50,
+  },
+  chat:{
+    width:60,
+    height:60,
   },
 })
