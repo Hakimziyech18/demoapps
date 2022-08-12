@@ -12,6 +12,13 @@ const ChatBox = styled.View`
   padding:5px;
   box-shadow: 5px -5px 8px black;
 `;
+
+const Results = styled.View`
+  padding:10px;
+  border-radius:8px;
+  background-image:linear-gradient(pink,skyblue);
+`;
+
 export default function App() {
   const [revenue,setRevenue] = useState(0);
   const [expenses,setExpenses] = useState(0);
@@ -23,14 +30,14 @@ export default function App() {
     const vat = (7.5/100) * profit;
     const total = cit + vat;
     return(
-      <View style={styles.summary}>
+      <Results>
         <Text style={styles.summaryLine}>Your Revenue :{revenue}</Text>
         <Text style={styles.summaryLine}>Your Expense :{expenses}</Text>
         <Text style={styles.summaryLine}>Your Profit :{profit}</Text>
         <Text style={styles.summaryLine}>CIT Tax :{cit}</Text>
         <Text style={styles.summaryLine}>VAT Tax :{vat}</Text>
         <Text style={styles.summaryLine}>Total Tax to Pay :{total}</Text>
-      </View>
+      </Results>
     )
   }
 
@@ -62,9 +69,12 @@ export default function App() {
         setStatus(true);
         }}/>
 
-        <ChatBox>
-          <Image style={styles.chat} source={require('./assets/images/whatsapp.png')}/>
+        <ChatBox onClick={() => {
+        alert('Welcome to Whatsapp');
+        }}>
+          <Image style={styles.chat} source={require('./assets/images/whatsapp.png')} />
         </ChatBox>
+      
       <StatusBar style='auto'/>
     </View>
   )
@@ -87,11 +97,6 @@ const styles = StyleSheet.create({
     justifyContent:'center',
     alignItems:'center',
     marginBottom:20
-  },
-  summary:{
-    padding:10,
-    backgroundColor:'skyblue',
-    borderRadius:8,
   },
   summaryLine:{
     borderBottomWidth:1,
