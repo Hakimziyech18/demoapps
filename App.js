@@ -2,7 +2,14 @@ import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import {View, Text, StyleSheet, Button, TextInput, Image} from 'react-native';
 import styled from 'styled-components/native';
+import {Button as Btn, TextInput as Input, Card, Title, Paragraph} from 'react-native-paper';
 
+const BtnBox = styled.View`
+  border:1px solid purple;
+  padding:4px;
+  border-radius:8px;
+  margin-top:20px;
+`;
 const ChatBox = styled.View`
   position:absolute;
   bottom: 10px;
@@ -37,6 +44,22 @@ export default function App() {
         <Text style={styles.summaryLine}>CIT Tax :{cit}</Text>
         <Text style={styles.summaryLine}>VAT Tax :{vat}</Text>
         <Text style={styles.summaryLine}>Total Tax to Pay :{total}</Text>
+
+        <BtnBox>
+          <Card style={{marginBottom:20}}>
+            <Card.Cover source={{uri:'https://images.pexels.com/photos/590016/pexels-photo-590016.jpeg'}}/>
+            <Card.Content>
+              <Title>Hire A Licenced Auditor</Title>
+              <Paragraph>
+
+              </Paragraph>
+              <Btn mode='contained' color='oldplace'>Learn more</Btn>
+            </Card.Content>
+          </Card>
+          <Text style={{textAlign:'center',fontSize:24,marginBottom:10}}>Send report to your email</Text>
+          <Input label='email address' style={{marginBottom:10}}/>
+          <Btn mode='contained' color='purple'> SEND </Btn> 
+        </BtnBox>
       </Results>
     )
   }
